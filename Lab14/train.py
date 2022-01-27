@@ -1,5 +1,5 @@
-﻿from sklearn.datasets import load_digits
-from sklearn.ensemble import RandomForestClassifier
+﻿from sklearn import svm
+from sklearn.datasets import load_digits
 from sklearn.model_selection import train_test_split
 
 digits = load_digits()
@@ -9,8 +9,7 @@ y = digits.target
 
 x_train, x_test, y_train, y_test = train_test_split(x, y)
 
-# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
-clf = RandomForestClassifier(n_estimators=10, random_state=20701)
+clf = svm.SVC(kernel='linear', random_state=20701)
 clf.fit(x_train, y_train)
 
 pred = clf.predict(x_test)
